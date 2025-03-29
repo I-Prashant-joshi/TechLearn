@@ -7,8 +7,7 @@ import Image from 'next/image';
 function Layout({children}) {
   return (
     <div
-    className="h-screen w-full"
-  
+    className="h-screen w-full fixed top-0"
   >
 
      <div className='nav text-2xl flex items-center' >

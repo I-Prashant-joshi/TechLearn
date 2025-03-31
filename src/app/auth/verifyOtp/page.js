@@ -1,5 +1,5 @@
 "use client";
-import callApi from '@/Common/callApi';
+import {callApi} from '@/Common/callApi';
 import OtpInput from '@/Common/OTPFields'
 import React from 'react'
 function VerifyOtp() {

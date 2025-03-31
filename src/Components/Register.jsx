@@ -1,6 +1,6 @@
 'use client'
 
-import callApi from "@/Common/callApi";
+import {callApi} from "@/Common/callApi";
 import React from "react";
 import { Button, TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
@@ -67,7 +67,7 @@ function Register() {
               placeholder="Enter your password"
             />
           </div>
-          <Button type="submit" variant="contained" color="success" >
+          <Button className="h-[50px]" type="submit" variant="contained" color="success" >
             Signup
           </Button>
         </form>

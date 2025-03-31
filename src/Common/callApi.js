@@ -1,7 +1,9 @@
-const BaseUrl = "http://localhost:5000/";
+const BaseUrl =
+ true
+    ? "https://techlearnbackend.onrender.com"
+    : "http://localhost:5000/";
 
 export  async function callApi(url, data) {
-  console.log("Request Data:", data);
 
   const api = await fetch(`${BaseUrl}${url}`, {
     method: "POST",

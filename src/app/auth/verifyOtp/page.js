@@ -44,7 +44,7 @@ function VerifyOtp() {
     } else {
       Toast.error(response.message);
       playSound();
-    setLoader(false)
+      setLoader(false)
 
     }
   };

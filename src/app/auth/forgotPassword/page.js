@@ -4,12 +4,14 @@ import Toast, { playSound } from "@/Common/ToastMessage";
 import { CircularProgress } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React from "react";
+
 function ForgotPassword() {
-  const [email, setEmail] = React.useState();
+  const [email, setEmail] = React.useState(''); // initialized with empty string
   const [emailError, setEmailError] = React.useState(false);
   const [loader, setLoader] = React.useState(false);
 
   const router = useRouter();
+
   const submitData = async () => {
     try {
       setLoader(true);
@@ -31,15 +33,17 @@ function ForgotPassword() {
         }
       }
     } catch (error) {
-      Toast.error(error);
+      Toast.error("Something went wrong");
       playSound();
       setLoader(false);
     }
   };
-  function changeEmail(event) {
+
+  const changeEmail = (event) => {
     setEmail(event.target.value);
     setEmailError(false);
-  }
+  };
+
   return (
     <div className="h-[100%] overflow-hidden w-full flex justify-center items-center relative">
       <div className="w-[80%] max-w-[500px]">
@@ -60,7 +64,11 @@ function ForgotPassword() {
           onClick={submitData}
           className="w-full p-2 bg-[#40BDEE] text-[black] rounded-2xl mt-[100px] text-2xl"
         >
-          {loader ? <CircularProgress style={{ color: "white" }} /> : "Submit"}{" "}
+          {loader ? (
+            <CircularProgress style={{ color: "white" }} size={24} />
+          ) : (
+            "Submit"
+          )}
         </button>
       </div>
     </div>

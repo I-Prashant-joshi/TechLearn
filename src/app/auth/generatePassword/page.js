@@ -1,15 +1,16 @@
 "use client";
+
 import {callApi} from '@/Common/callApi';
 import Toast, { playSound } from '@/Common/ToastMessage';
 import { CircularProgress } from '@mui/material';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react'
-function GeneratePassword() {
+ function GeneratePassword() {
+    
     const [password,setPassword]=React.useState()
     const [loader,setLoader]=React.useState()
     const [passwordError,setPasswordError]=React.useState(false)
-    const pathname = useSearchParams()
-    const code = pathname.get("code")
+ 
     const router= useRouter()
     const submitData = async()=>{
         setLoader(true);
@@ -19,6 +20,8 @@ function GeneratePassword() {
             
         }
         else{
+            const pathname = useSearchParams()
+            const code = pathname.get("code")
             const response= await callApi(`auth/generate-password?code=${code}`,{password})
             Toast.error(response.message);
             playSound();

@@ -10,8 +10,8 @@ import React from 'react'
     const [password,setPassword]=React.useState()
     const [loader,setLoader]=React.useState()
     const [passwordError,setPasswordError]=React.useState(false)
-    // const pathname = useSearchParams()
-    // const code = pathname.get("code")
+    const pathname = useSearchParams()
+    const code = pathname.get("code")
     const router= useRouter()
     const submitData = async()=>{
         setLoader(true);
@@ -21,7 +21,7 @@ import React from 'react'
             
         }
         else{
-            // const response= await callApi(`auth/generate-password?code=${code}`,{password})
+            const response= await callApi(`auth/generate-password?code=${code}`,{password})
             Toast.error(response.message);
             playSound();
             setLoader(false);
